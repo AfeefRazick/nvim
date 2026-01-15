@@ -46,10 +46,10 @@ vim.o.splitbelow = true
 -- Sets how neovim will display certain whitespace characters in the editor.
 vim.o.list = true
 vim.opt.listchars = ''
+---@diagnostic disable-next-line: undefined-field
 vim.opt.listchars:append {
   tab = '» ',
   trail = '·',
-  eol = '↲',
 }
 
 -- Preview substitutions live, as you type!
@@ -67,6 +67,7 @@ vim.g.loaded_netrwPlugin = 1
 
 -- Replace trailing tilde with empty char
 vim.opt.fillchars = ''
+---@diagnostic disable-next-line: undefined-field
 vim.opt.fillchars:append {
   eob = ' ',
 }

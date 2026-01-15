@@ -3,8 +3,12 @@ vim.keymap.set('n', ',p', '"0p', { desc = '[P]aste last yanked not deleted' })
 vim.keymap.set('x', 'p', '"_dP', { desc = '[P]aste over selected without saving to register' })
 
 -- Diagnostic
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump { count = -1 }
+end, { desc = 'Go to previous [D]iagnostic' })
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump { count = 1 }
+end, { desc = 'Go to next [D]iagnostic' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
